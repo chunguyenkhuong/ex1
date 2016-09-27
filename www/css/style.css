@@ -1,0 +1,32 @@
+.card {
+  margin: 0 !important;
+}
+
+.fixed{
+  display: fixed !important;
+   top: 0px !important;
+}
+
+.row {
+  padding: 0 !important;
+}
+
+.account_name {
+  margin-top: 6px !important;
+}
+
+.account_add {
+  margin-left: 180px !important;
+}
+
+.profile {
+  width: 100%;
+  text-align: center;
+  padding: 0px 7px 0px 7px !important;
+}
+
+.profile_edit {
+  margin-right: 15px !important;
+  margin-left: 20px !important;
+
+}
