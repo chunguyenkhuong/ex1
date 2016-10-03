@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -83,15 +83,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.topsearch', {
-    url: '/topsearch',
-    views: {
-      'tab-search': {
-        templateUrl: 'templates/tab-topsearch.html',
-        controller: 'TopsearchCtrl'
-      }
-    }
-  })
+  // .state('tab.topsearch', {
+  //   url: '/topsearch',
+  //   views: {
+  //     'tab-search': {
+  //       templateUrl: 'templates/tab-topsearch.html',
+  //       controller: 'TopsearchCtrl'
+  //     }
+  //   }
+  // })
 
   .state('tab.peoplesearch', {
     url: '/peoplesearch',
@@ -172,7 +172,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-  
+
   .state('tab.postone_account', {
     url: '/postone_account',
     views: {

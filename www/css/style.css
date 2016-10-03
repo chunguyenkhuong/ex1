@@ -28,5 +28,8 @@
 .profile_edit {
   margin-right: 15px !important;
   margin-left: 20px !important;
+}
 
+.imageCamera {
+  max-width: 100% !important;
 }

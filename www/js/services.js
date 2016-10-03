@@ -47,4 +47,31 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+.factory('Posts', function($q, $http) {
+
+  return {
+    all: function() {
+      // return promise
+      return $q(function(resolve, reject){
+          $http.get('https://khuongstagram.herokuapp.com/posts').then(function(response){
+              // do something with the response if necessary
+              console.log(response);
+              // here the response body (which contains the JSON data we are interested in) is returned
+              resolve(response.data);
+          });
+      })
+    },
+    share: function(newdata){
+      return $q(function(resolve, reject){
+          $http.get('https://khuongstagram.herokuapp.com/posts').then(function(response){
+              // do something with the response if necessary
+              console.log(response);
+              // here the response body (which contains the JSON data we are interested in) is returned
+              resolve(response.data);
+
+          });
+      })
+    }
+  };
 });
