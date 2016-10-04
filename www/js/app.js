@@ -52,6 +52,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
+
+// comment
+  .state('tab.comment', {
+    url: '/comment/:postId',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/tab-comment.html',
+        controller: 'CommentCtrl'
+      }
+    }
+  })
+
  // home/chats
   .state('tab.chats', {
     url: '/chats',

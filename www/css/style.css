@@ -33,3 +33,11 @@
 .imageCamera {
   max-width: 100% !important;
 }
+
+.styleComment {
+  padding-top: 480px !important;
+}
+
+.boxComment {
+  padding-left: 0px !important;
+}

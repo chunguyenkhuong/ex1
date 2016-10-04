@@ -9,7 +9,7 @@
     </ion-nav-buttons>
 
     <ion-nav-buttons side="right">
-      <a nav-direction="enter" class="button button-icon icon ion-archive" href="#/tab/chat">
+      <a nav-direction="enter" class="button button-icon icon ion-chatboxes" href="#/tab/chat">
       </a>
     </ion-nav-buttons>
 
@@ -25,10 +25,10 @@
         <img ng-src="{{post.image}}">
     </div>
 
-      <a class="button button-icon icon ion-ios-heart">
+    <a ng-controller="changeIcon" class="button button-icon icon ion-ios-heart" ng-click="buttonLike(post); instantiate()" ng-class="IconOn?'ion-ios-heart':'ion-ios-heart-outline'">
+    </a>
+      <a class="button button-icon icon ion-ios-chatbubble-outline" href="#/tab/comment/{{post.id}}">
       </a>
-      <button class="button button-icon icon ion-ios-chatbubble-outline">
-      </button>
       <button class="button button-icon icon ion-ios-redo-outline">
       </button>
 

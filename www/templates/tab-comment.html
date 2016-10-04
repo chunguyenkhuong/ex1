@@ -1,0 +1,21 @@
+<ion-view view-title="Comments">
+
+
+  <ion-content class="has-header">
+
+    <div>
+        <p ng-repeat="comment in post.comments">
+            <b>{{comment.user.username}}</b> {{comment.comment}}
+        </p>
+    </div>
+
+    <form>
+        <label class="item item-input item-text-wrap">
+            <input type="text" placeholder="Add a comment..." ng-model="typeComment" name="typeComment">
+        </label>
+        <input type="submit" id="submit" value="Submit" class="button button-positive" ng-click="addComment(typeComment)"/>
+    </form>
+
+  </ion-content>
+
+</ion-view>

@@ -23,9 +23,6 @@ angular.module('starter.controllers', [])
                    "username":"Adam"
                 },
                 "comment":"Congratulation",
-                "userRefs":[
-
-                ]
              },
              {
                 "id":1,
@@ -34,15 +31,32 @@ angular.module('starter.controllers', [])
                    "username":"Sebastian"
                 },
                 "comment":"lol",
-                "userRefs":[
-                   "Adam"
-                ]
              }
           ]
        });
 
     }
   );
+})
+.controller('changeIcon', function($scope) {
+  $scope.IconOn = false;
+
+  $scope.instantiate = function() {
+    $scope.IconOn = (!$scope.IconOn);
+}
+
+  $scope.buttonLike = function(post){
+    post.isLiked = !post.isLiked;
+
+    if( post.isLiked){
+      post.likes ++;
+
+    }
+    else{
+      post.likes --;
+
+    }
+  }
 })
 
 .controller('LoveCtrl', function($scope) {})
@@ -60,7 +74,39 @@ angular.module('starter.controllers', [])
 .controller('More_accountCtrl', function($scope) {})
 
 
-.controller('CameraCtrl', function($scope, $cordovaCamera) {
+.controller('CommentCtrl', function ($scope, $stateParams, $state, $ionicHistory, Posts) {
+    $scope.post = Posts.get($stateParams.postId);
+
+    $scope.goBack = function () {
+        $ionicHistory.nextViewOptions({
+            disableBack: true
+        });
+        $state.go('tab.home');
+    }
+
+    $scope.master = {};
+    var posts = Posts.all();
+    $scope.addComment = function (typeComment) {
+        $scope.master = angular.copy(typeComment);
+        var comments = Posts.get($stateParams.postId).comments;
+        var new_comment = {
+            id: comments.length + 1,
+            user: {
+                id: 09,
+                username: "Khuong",
+            },
+            comment: $scope.master,
+            userRefs: [],
+            tags: []
+        }
+        Posts.get($stateParams.postId).comments.push(new_comment);
+        console.log(comments);
+        $state.reload();
+    }
+})
+
+
+.controller('CameraCtrl', function($scope, $rootScope, $cordovaCamera) {
   $scope.takePicture = function() {
     var options = {
       quality: 100,
@@ -75,7 +121,7 @@ angular.module('starter.controllers', [])
 	    correctOrientation:true
     };
     $cordovaCamera.getPicture(options).then(function(imageData) {
-      $scope.image = imageData;
+      $rootScope.image = imageData;
 
     }, function(err) {
       // error
@@ -95,16 +141,12 @@ angular.module('starter.controllers', [])
       correctOrientation:true
     };
     $cordovaCamera.getPicture(options).then(function(imageData) {
-      $scope.image = imageData;
+      $rootScope.image = imageData;
 
     }, function(err) {
       // error
     });
   };
-
-
-
-
 })
 
 
@@ -131,4 +173,7 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
-});
+
+
+
+})
